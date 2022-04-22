@@ -27,8 +27,8 @@
             </div>
             <!-- /.form -->
             <div class="to-do-list">
-                <ul v-for="(task, index) in tasks">
-                    <li>
+                <ul>
+                    <li v-for="(task, index) in tasks">
                         <span :class="task.done === false ? '' : 'text-strikethrough'" @click="strikethroughTask(index)">
                             {{task.text}}
                         </span>

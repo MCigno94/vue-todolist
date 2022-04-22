@@ -5,7 +5,8 @@
 }
 
 body {
-    background-color: rgba(100, 148, 237, 0.569);
+    background-color: rgb(53 76 176 / 57%);
+    color: #001533;
 }
 
 img {
@@ -20,8 +21,8 @@ img {
 }
 
 .logo-list {
-    width: 60%;
-    margin: 0.5rem auto;
+    width: 70%;
+    margin: 1rem auto;
 }
 
 .form input,
@@ -29,20 +30,47 @@ img {
     border: none;
     padding: 0.5rem;
     border-radius: 0.5rem;
+    box-shadow: 0 5px 10px #001533b4;
+}
+
+.form button {
+    background-color: #00e165;
+    font-weight: bolder;
+    margin: 0 0.5rem;
 }
 
 .to-do-list {
-    max-height: 100%;
+    height: 100%;
     margin: 2rem 0;
-    padding: 1rem;
+    padding: 2rem;
     background-color: aliceblue;
-    border-radius: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00153389;
+    display: flex;
+    justify-content: center;
+}
+
+.to-do-list ul {
+    width: 70%;
+    max-height: 60%;
+    margin: auto 0;
     overflow-y: scroll;
 }
 
-.to-do-list ul>li {
+.to-do-list li {
+    margin-right: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #001533;
     list-style-type: none;
     padding: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: bolder;
+}
+
+.to-do-list li:first-child {
+    border-top: 1px solid #001533;
 }
 
 .to-do-list i,
@@ -52,4 +80,18 @@ img {
 
 .text-strikethrough {
     text-decoration: line-through;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #001533;
+    border-radius: 3px;
+    padding: 1rem;
 }
