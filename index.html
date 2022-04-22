@@ -22,7 +22,7 @@
             </div>
             <!-- /.logo-list -->
             <div class="form">
-                <input type="text" placeholder="Nuovo Todo" v-model="inputText" @keyup.enter="addTask">
+                <input type="text" placeholder="Nuovo Todo" v-model="inputText" @keyup.enter="addTask" required>
                 <button @click="addTask">Aggiungi</button>
             </div>
             <!-- /.form -->

@@ -46,6 +46,7 @@ const app = new Vue({
             }
             //console.log(newTask);
             this.inputText = '';
+            console.log('');
         },
         strikethroughTask(index) {
             //console.log(this.tasks[index].done);

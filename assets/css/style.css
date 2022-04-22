@@ -1,7 +1,55 @@
-.text-strikethrough {
-    text-decoration: line-through;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.to-do-list i {
+body {
+    background-color: rgba(100, 148, 237, 0.569);
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 400px;
+    height: 400px;
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.logo-list {
+    width: 60%;
+    margin: 0.5rem auto;
+}
+
+.form input,
+.form button {
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.to-do-list {
+    max-height: 100%;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: aliceblue;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+
+.to-do-list ul>li {
+    list-style-type: none;
+    padding: 0.5rem;
+}
+
+.to-do-list i,
+.to-do-list span {
     cursor: pointer;
+}
+
+.text-strikethrough {
+    text-decoration: line-through;
 }
