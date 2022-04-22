@@ -16,10 +16,7 @@ Bonus:
 const app = new Vue({
     el: '#app',
     data: {
-        newTask: {
-            text: '',
-            done: false
-        },
+        inputText: '',
         tasks: [{
                 text: 'Fare i compiti',
                 done: false
@@ -38,19 +35,27 @@ const app = new Vue({
         removeTask(index) {
             this.tasks.splice(index, 1)
         },
-        addTask(index) {
-            console.log(this.newTask);
-
-            this.tasks.unshift(this.newTask);
-            this.Task[index].text = ''
+        addTask() {
+            //console.log(this.inputText);
+            if (this.inputText != '') {
+                newTask = {
+                    text: this.inputText,
+                    done: false
+                }
+                this.tasks.unshift(newTask);
+            }
+            //console.log(newTask);
+            this.inputText = '';
         },
         strikethroughTask(index) {
-            this.tasks[index].done = true;
-            //console.log(index);
+            //console.log(this.tasks[index].done);
+            if (this.tasks[index].done != true) {
+                this.tasks[index].done = true;
+            } else {
+                this.tasks[index].done = false;
+            }
             //console.log(this.tasks[index].done);
         },
 
     }
 });
-
-//

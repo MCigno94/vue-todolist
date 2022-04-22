@@ -22,14 +22,16 @@
             </div>
             <!-- /.logo-list -->
             <div class="form">
-                <input type="text" placeholder="Nuovo Todo" v-model="newTask.text">
+                <input type="text" placeholder="Nuovo Todo" v-model="inputText" @keyup.enter="addTask">
                 <button @click="addTask">Aggiungi</button>
             </div>
             <!-- /.form -->
             <div class="to-do-list">
                 <ul v-for="(task, index) in tasks">
-                    <li :class="task.done === false ? '' : 'text-strikethrough'" @click="strikethroughTask(index)">
-                        {{task.text}}
+                    <li>
+                        <span :class="task.done === false ? '' : 'text-strikethrough'" @click="strikethroughTask(index)">
+                            {{task.text}}
+                        </span>
                         <i class="fa-solid fa-xmark" @click="removeTask(index)"></i>
                     </li>
                 </ul>
