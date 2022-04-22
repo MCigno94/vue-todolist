@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' integrity='sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==' crossorigin='anonymous' referrerpolicy='no-referrer'
+    />
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="container">
+            <div class="logo-list">
+                <img src="./img/logo.png" alt="">
+            </div>
+            <!-- /.logo-list -->
+            <div class="form">
+                <input type="text" placeholder="Nuovo Todo" v-model="newTask.text">
+                <button @click="addTask">Aggiungi</button>
+            </div>
+            <!-- /.form -->
+            <div class="to-do-list">
+                <ul v-for="(task, index) in tasks">
+                    <li :class="task.done === false ? '' : 'text-strikethrough'" @click="strikethroughTask(index)">
+                        {{task.text}}
+                        <i class="fa-solid fa-xmark" @click="removeTask(index)"></i>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.to-do-list -->
+        </div>
+        <!-- /.container -->
+
+
+    </div>
+    <!-- /#app -->
+
+
+
+    <!-- vue link -->
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js'></script>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>

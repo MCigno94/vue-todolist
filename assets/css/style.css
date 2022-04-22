@@ -1,0 +1,7 @@
+.text-strikethrough {
+    text-decoration: line-through;
+}
+
+.to-do-list i {
+    cursor: pointer;
+}
