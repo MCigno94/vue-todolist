@@ -36,8 +36,8 @@
                                 {{task.text}}
                             </span>
                             <span class="icon">
-                                <i class="fa-solid fa-circle-check" @click="strikethroughTask(index)"></i>
-                                <i class="fa-solid fa-trash" @click="removeTask(index, task)"></i>
+                                <i class="fa-solid fa-circle-check" @click="moveTask(index, task)"></i>
+                                <i class="fa-solid fa-trash" @click="deleteTask(index, task)"></i>
                             </span>
                         </li>
                     </ul>
@@ -45,10 +45,21 @@
                 <!-- /.to-do-list -->
                 <div class="task-completed">
                     <ul>
-                        <li v-for="completedTask in completedTasks">{{completedTask.text}}</li>
+                        <li v-for="(completedTask, index) in completedTasks">
+                            {{completedTask.text}}
+                            <span class="icon">
+                                <i class="fa-solid fa-arrow-rotate-right" @click="pullUpTask(completedTask, index)"></i>
+                            </span>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.task-completed -->
+                <div class="task-deleted">
+                    <ul>
+                        <li v-for="deletedTask in deletedTasks">{{deletedTask.text}}</li>
+                    </ul>
+                </div>
+                <!-- /.task-deleted -->
             </section>
             <!-- /.tasks -->
         </div>

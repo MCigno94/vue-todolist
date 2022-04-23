@@ -38,10 +38,11 @@ const app = new Vue({
                 done: false
             },
         ],
-        completedTasks: []
+        completedTasks: [],
+        deletedTasks: []
     },
     methods: {
-        removeTask(index, task) {
+        moveTask(index, task) {
             this.tasks.splice(index, 1);
             //console.log(this.tasks.length);
             this.completedTasks.unshift(task);
@@ -59,21 +60,25 @@ const app = new Vue({
             //console.log(newTask);
             this.inputText = '';
         },
-        strikethroughTask(index) {
-            //console.log(this.tasks[index].done);
-            if (this.tasks[index].done != true) {
-                this.tasks[index].done = true;
-            } else {
-                this.tasks[index].done = false;
-            }
-            //console.log(this.tasks[index].done);
-        },
+        deleteTask(index, task) {
+            this.tasks.splice(index, 1);
+            //console.log(this.tasks.length);
+            this.deletedTasks.unshift(task);
+            console.log(this.deletedTasks);
 
+        },
+        pullUpTask(task, index) {
+            this.tasks.unshift(task);
+            this.completedTasks.splice(index, 1);
+        }
     }
 });
+
 
 // aggiungo l'icona cestino per eliminare e spostare la task nel "cestino" - ok
 // aggiungo l'icona check per barrare la task completata (al posto di cliccare sulla scritta) - ok
 // creo un nuovo array (task completate) - ok
 // appena cancello una task la pusho nel nuovo array - ok
-// se il nuovo array contiene elementi lo visualizzo a schermo
+// se il nuovo array contiene elementi lo visualizzo a schermo - ok
+// aggiungere il pulsante refresh se vuoi riprendere una task completata
+//
