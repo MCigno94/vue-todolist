@@ -27,16 +27,18 @@
             </div>
             <!-- /.form -->
             <div class="to-do-list">
-                <ul>
+                <div class="message" v-if="this.tasks.length == 0"> {{message}} </div>
+                <ul v-else>
                     <li v-for="(task, index) in tasks">
                         <span :class="task.done === false ? '' : 'text-strikethrough'" @click="strikethroughTask(index)">
                             {{task.text}}
                         </span>
-                        <i class="fa-solid fa-xmark" @click="removeTask(index)"></i>
+                        <i class="fa-solid fa-xmark fa-2x" @click="removeTask(index)"></i>
                     </li>
                 </ul>
             </div>
             <!-- /.to-do-list -->
+            <!-- /.message -->
         </div>
         <!-- /.container -->
 

@@ -16,6 +16,7 @@ Bonus:
 const app = new Vue({
     el: '#app',
     data: {
+        message: "non c'è nulla da fare!",
         inputText: '',
         tasks: [{
                 text: 'Fare i compiti',
@@ -34,6 +35,7 @@ const app = new Vue({
     methods: {
         removeTask(index) {
             this.tasks.splice(index, 1)
+            console.log(this.tasks.length);
         },
         addTask() {
             //console.log(this.inputText);
