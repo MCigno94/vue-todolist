@@ -55,8 +55,15 @@
                 </div>
                 <!-- /.task-completed -->
                 <div class="task-deleted">
+                    <h3>
+                        Cestino
+                        <i class="fa-solid fa-trash-can" @click="deleteAll"></i>
+                    </h3>
                     <ul>
-                        <li v-for="deletedTask in deletedTasks">{{deletedTask.text}}</li>
+                        <li v-for="(deletedTask, index) in deletedTasks">
+                            {{deletedTask.text}}
+                            <i class="fa-solid fa-arrow-rotate-right" @click="pullUpTask(deletedTask, index)"></i>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.task-deleted -->

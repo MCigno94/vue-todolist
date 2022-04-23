@@ -69,7 +69,14 @@ const app = new Vue({
         },
         pullUpTask(task, index) {
             this.tasks.unshift(task);
-            this.completedTasks.splice(index, 1);
+            if (this.completedTasks.includes(task)) {
+                this.completedTasks.splice(index, 1);
+            } else if (this.deletedTasks.includes(task)) {
+                this.deletedTasks.splice(index, 1);
+            }
+        },
+        deleteAll() {
+            this.deletedTasks = [''];
         }
     }
 });
@@ -80,5 +87,5 @@ const app = new Vue({
 // creo un nuovo array (task completate) - ok
 // appena cancello una task la pusho nel nuovo array - ok
 // se il nuovo array contiene elementi lo visualizzo a schermo - ok
-// aggiungere il pulsante refresh se vuoi riprendere una task completata
+// aggiungere il pulsante refresh se vuoi riprendere una task completata - ok
 //
