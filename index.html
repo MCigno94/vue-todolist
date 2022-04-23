@@ -26,19 +26,31 @@
                 <button @click="addTask">Aggiungi</button>
             </div>
             <!-- /.form -->
-            <div class="to-do-list">
-                <div class="message" v-if="this.tasks.length == 0"> {{message}} </div>
-                <ul v-else>
-                    <li v-for="(task, index) in tasks">
-                        <span :class="task.done === false ? '' : 'text-strikethrough'" @click="strikethroughTask(index)">
-                            {{task.text}}
-                        </span>
-                        <i class="fa-solid fa-xmark fa-2x" @click="removeTask(index)"></i>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.to-do-list -->
-            <!-- /.message -->
+            <section class="tasks">
+                <div class="to-do-list">
+                    <div class="message" v-if="this.tasks.length == 0"> {{message}} </div>
+                    <!-- /.message -->
+                    <ul v-else>
+                        <li v-for="(task, index) in tasks">
+                            <span :class="task.done === false ? '' : 'text-strikethrough'">
+                                {{task.text}}
+                            </span>
+                            <span class="icon">
+                                <i class="fa-solid fa-circle-check" @click="strikethroughTask(index)"></i>
+                                <i class="fa-solid fa-trash" @click="removeTask(index, task)"></i>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.to-do-list -->
+                <div class="task-completed">
+                    <ul>
+                        <li v-for="completedTask in completedTasks">{{completedTask.text}}</li>
+                    </ul>
+                </div>
+                <!-- /.task-completed -->
+            </section>
+            <!-- /.tasks -->
         </div>
         <!-- /.container -->
 
