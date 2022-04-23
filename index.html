@@ -62,7 +62,7 @@
                     <ul>
                         <li v-for="(deletedTask, index) in deletedTasks">
                             {{deletedTask.text}}
-                            <i class="fa-solid fa-arrow-rotate-right" @click="pullUpTask(deletedTask, index)" v-if=""></i>
+                            <i class="fa-solid fa-arrow-rotate-right" @click="pullUpTask(deletedTask, index)" v-if="deletedTask"></i>
                         </li>
                     </ul>
                 </div>
