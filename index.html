@@ -28,13 +28,12 @@
             <!-- /.form -->
             <section class="tasks">
                 <div class="to-do-list">
+                    <h3>To do list</h3>
                     <div class="message" v-if="this.tasks.length == 0"> {{message}} </div>
                     <!-- /.message -->
                     <ul v-else>
                         <li v-for="(task, index) in tasks">
-                            <span :class="task.done === false ? '' : 'text-strikethrough'">
-                                {{task.text}}
-                            </span>
+                            <input type="text" v-model="task.text">
                             <span class="icon">
                                 <i class="fa-solid fa-circle-check" @click="moveTask(index, task)"></i>
                                 <i class="fa-solid fa-trash" @click="deleteTask(index, task)"></i>
@@ -43,7 +42,8 @@
                     </ul>
                 </div>
                 <!-- /.to-do-list -->
-                <div class="task-completed">
+                <div class="task-completed" v-if="this.completedTasks.length !== 0">
+                    <h3>Completate</h3>
                     <ul>
                         <li v-for="(completedTask, index) in completedTasks">
                             {{completedTask.text}}
@@ -54,7 +54,7 @@
                     </ul>
                 </div>
                 <!-- /.task-completed -->
-                <div class="task-deleted">
+                <div class="task-deleted" v-if="this.deletedTasks.length !== 0">
                     <h3>
                         Cestino
                         <i class="fa-solid fa-trash-can" @click="deleteAll"></i>
@@ -62,7 +62,7 @@
                     <ul>
                         <li v-for="(deletedTask, index) in deletedTasks">
                             {{deletedTask.text}}
-                            <i class="fa-solid fa-arrow-rotate-right" @click="pullUpTask(deletedTask, index)"></i>
+                            <i class="fa-solid fa-arrow-rotate-right" @click="pullUpTask(deletedTask, index)" v-if=""></i>
                         </li>
                     </ul>
                 </div>

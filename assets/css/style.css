@@ -55,6 +55,12 @@ li {
     align-items: center;
 }
 
+.to-do-list input {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 .message {
     text-transform: uppercase;
 }
